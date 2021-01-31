@@ -1,0 +1,13 @@
+C:\Users\dude_dude\source\repos\GC_Capstone_TaskList\GC_Capstone_TaskList\bin\Debug\netcoreapp3.1\GC_Capstone_TaskList.exe
+C:\Users\dude_dude\source\repos\GC_Capstone_TaskList\GC_Capstone_TaskList\bin\Debug\netcoreapp3.1\GC_Capstone_TaskList.deps.json
+C:\Users\dude_dude\source\repos\GC_Capstone_TaskList\GC_Capstone_TaskList\bin\Debug\netcoreapp3.1\GC_Capstone_TaskList.runtimeconfig.json
+C:\Users\dude_dude\source\repos\GC_Capstone_TaskList\GC_Capstone_TaskList\bin\Debug\netcoreapp3.1\GC_Capstone_TaskList.runtimeconfig.dev.json
+C:\Users\dude_dude\source\repos\GC_Capstone_TaskList\GC_Capstone_TaskList\bin\Debug\netcoreapp3.1\GC_Capstone_TaskList.dll
+C:\Users\dude_dude\source\repos\GC_Capstone_TaskList\GC_Capstone_TaskList\bin\Debug\netcoreapp3.1\GC_Capstone_TaskList.pdb
+C:\Users\dude_dude\source\repos\GC_Capstone_TaskList\GC_Capstone_TaskList\obj\Debug\netcoreapp3.1\GC_Capstone_TaskList.csprojAssemblyReference.cache
+C:\Users\dude_dude\source\repos\GC_Capstone_TaskList\GC_Capstone_TaskList\obj\Debug\netcoreapp3.1\GC_Capstone_TaskList.AssemblyInfoInputs.cache
+C:\Users\dude_dude\source\repos\GC_Capstone_TaskList\GC_Capstone_TaskList\obj\Debug\netcoreapp3.1\GC_Capstone_TaskList.AssemblyInfo.cs
+C:\Users\dude_dude\source\repos\GC_Capstone_TaskList\GC_Capstone_TaskList\obj\Debug\netcoreapp3.1\GC_Capstone_TaskList.csproj.CoreCompileInputs.cache
+C:\Users\dude_dude\source\repos\GC_Capstone_TaskList\GC_Capstone_TaskList\obj\Debug\netcoreapp3.1\GC_Capstone_TaskList.dll
+C:\Users\dude_dude\source\repos\GC_Capstone_TaskList\GC_Capstone_TaskList\obj\Debug\netcoreapp3.1\GC_Capstone_TaskList.pdb
+C:\Users\dude_dude\source\repos\GC_Capstone_TaskList\GC_Capstone_TaskList\obj\Debug\netcoreapp3.1\GC_Capstone_TaskList.genruntimeconfig.cache
