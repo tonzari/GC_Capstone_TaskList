@@ -11,10 +11,30 @@ namespace GC_Capstone_TaskList
         private string dueDate;
         private bool isCompleted;
 
+        private string status;
+        private string falseTerm = "incomplete";
+        private string trueTerm = "complete";
+
         public string TeamMemberName { get => teamMemberName; set => teamMemberName = value; }
         public string Description { get => description; set => description = value; }
         public string DueDate { get => dueDate; set => dueDate = value; }
-        public bool IsCompleted { get => isCompleted; set => isCompleted = value; }
+        public string Status { get => status; }
+        public bool IsCompleted
+        {
+            get { return isCompleted; }
+            set
+            {
+                isCompleted = value;
+                if (value == true)
+                {
+                    status = trueTerm;
+                }
+                else
+                {
+                    status = falseTerm;
+                }
+            }
+        }
 
         public Burden(string teamMemberName, string description, string dueDate)
         {
@@ -22,6 +42,7 @@ namespace GC_Capstone_TaskList
             this.description = description;
             this.dueDate = dueDate;
             isCompleted = false;
+            status = falseTerm;
         }
 
         //TODO

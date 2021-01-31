@@ -18,5 +18,35 @@ namespace GC_Capstone_TaskList
         {
             Burdens.Add(burden);
         }
+
+        public void DeleteBurden(int burdenIndex)
+        {
+            burdens.RemoveAt(burdenIndex);
+        }
+
+        public void PrintBurdens()
+        {
+            Console.WriteLine($"There are {burdens.Count} burdens to fulfill.");
+            Console.WriteLine(Environment.NewLine);
+
+            foreach (Burden burden in burdens)
+            {
+                Console.WriteLine($"\tBurden:\t{burden.Description}");
+                Console.WriteLine($"\tName:\t{burden.TeamMemberName}");
+                Console.WriteLine($"\tDue:\t{burden.DueDate}");
+                Console.WriteLine($"\tStatus:\t{burden.Status}");
+                Console.WriteLine(Environment.NewLine);
+            }
+        }
+
+        public void EditBurden()
+        {
+
+        }
+
+        public void MarkBurdenComplete()
+        {
+
+        }
     }
 }
