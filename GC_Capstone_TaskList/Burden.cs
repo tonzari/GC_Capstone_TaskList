@@ -11,6 +11,8 @@ namespace GC_Capstone_TaskList
         private string dueDate;
         private bool isCompleted;
 
+        private DateTime dateTime; // Strech goal: convert all dates as strings to actual DateTime types. 
+
         private string status;
         private string falseTerm = "incomplete";
         private string trueTerm = "complete";

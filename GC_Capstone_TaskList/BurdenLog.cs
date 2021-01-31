@@ -29,24 +29,27 @@ namespace GC_Capstone_TaskList
             Console.WriteLine($"There are {burdens.Count} burdens to fulfill.");
             Console.WriteLine(Environment.NewLine);
 
-            foreach (Burden burden in burdens)
+            for (int i = 0; i < burdens.Count; i++)
             {
-                Console.WriteLine($"\tBurden:\t{burden.Description}");
-                Console.WriteLine($"\tName:\t{burden.TeamMemberName}");
-                Console.WriteLine($"\tDue:\t{burden.DueDate}");
-                Console.WriteLine($"\tStatus:\t{burden.Status}");
+                Console.WriteLine($"\tBurden Number:\t{i+1}");
+                Console.WriteLine($"\tDescription:\t{burdens[i].Description}");
+                Console.WriteLine($"\tName:\t{burdens[i].TeamMemberName}");
+                Console.WriteLine($"\tDue:\t{burdens[i].DueDate}");
+                Console.WriteLine($"\tStatus:\t{burdens[i].Status}");
                 Console.WriteLine(Environment.NewLine);
             }
         }
 
-        public void EditBurden()
+        public void EditBurden(int burdenIndex, string teamMemberName, string description, string dueDate)
         {
-
+            burdens[burdenIndex].TeamMemberName = teamMemberName;
+            burdens[burdenIndex].Description = description;
+            burdens[burdenIndex].DueDate = dueDate;
         }
 
-        public void MarkBurdenComplete()
+        public void MarkBurdenComplete(int burdenIndex)
         {
-
+            burdens[burdenIndex].IsCompleted = true;
         }
     }
 }

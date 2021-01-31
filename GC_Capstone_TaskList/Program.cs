@@ -12,6 +12,8 @@ namespace GC_Capstone_TaskList
         public static BurdenLog OurBurdens = new BurdenLog();
         public static bool userWantsToContinue = true;
         public static string userInput;
+        public static int userNumber;
+        public static int maxChoiceRange; // Keeps track of highest user number choice allowed in each menu
 
         static void Main(string[] args)
         {
@@ -32,18 +34,73 @@ namespace GC_Capstone_TaskList
 
         private static void AccessTaskManager()
         {
-            OurBurdens.PrintBurdens();
-            CheckUserWantsToContinue();
+            PrintMainMenu();
+            
+            userNumber = GetAndValidateUserNumber();
 
+            switch (userNumber)
+            {
+                case 1:
+                    OurBurdens.PrintBurdens();
+                    break;
+                case 2:
+                    Console.WriteLine("You chose ADD");
+                    //OurBurdens.AddBurden();
+                    break;
+                case 3:
+                    Console.WriteLine("You chose EDIT");
+                    //OurBurdens.EditBurden();
+                    break;
+                case 4:
+                    Console.WriteLine("You chose DELETE");
+                    //OurBurdens.DeleteBurden();
+                    break;
+                case 5:
+                    break;
+                default:
+                    Console.WriteLine($"Sorry, an error has occured. Unexpected value: {userNumber}");
+                    break;
+            }
+            
+
+            CheckUserWantsToContinue();
+        }
+
+        private static void PrintMainMenu()
+        {
+            maxChoiceRange = 5;
+
+            Console.WriteLine("1. List Burdens");
+            Console.WriteLine("2. Add a Burden");
+            Console.WriteLine("3. Edit a Burden");
+            Console.WriteLine("4. Delete a Burden");
+            Console.WriteLine("5. Quit");
+            Console.WriteLine("\nWhat would you like to do?");
+        }
+
+        private static int GetAndValidateUserNumber()
+        {
+            userInput = Console.ReadLine();
+
+            if (Int32.TryParse(userInput, out int result) && result >= 1 && result <= maxChoiceRange)
+            {
+                return result;
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please Try again: ");
+                return GetAndValidateUserNumber();
+            }
+            
         }
 
         private static void CheckUserWantsToContinue()
         {
             // Prompt user to continue/quit
-            Console.WriteLine("Continue? (y/n):");
+            Console.WriteLine("Are you sure want to quit? (y/n):");
             userInput = Console.ReadLine();
             Console.WriteLine(Environment.NewLine);
-            if (userInput.Equals("n"))
+            if (userInput.Equals("y"))
             {
                 userWantsToContinue = false;
             }
