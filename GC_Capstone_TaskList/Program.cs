@@ -6,7 +6,6 @@ namespace GC_Capstone_TaskList
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
         }
     }
 }
