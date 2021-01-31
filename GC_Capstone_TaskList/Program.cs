@@ -30,6 +30,7 @@ namespace GC_Capstone_TaskList
         private static void PrintWelcomeMessage()
         {
             Console.WriteLine("Welcome to The Burden Manager!");
+            Console.WriteLine("");
         }
 
         private static void AccessTaskManager()
@@ -44,6 +45,7 @@ namespace GC_Capstone_TaskList
                     OurBurdens.PrintBurdens();
                     break;
                 case 2:
+                   // AccessAddPage();
                     Console.WriteLine("You chose ADD");
                     //OurBurdens.AddBurden();
                     break;
@@ -69,17 +71,23 @@ namespace GC_Capstone_TaskList
         private static void PrintMainMenu()
         {
             maxChoiceRange = 5;
-
-            Console.WriteLine("1. List Burdens");
-            Console.WriteLine("2. Add a Burden");
-            Console.WriteLine("3. Edit a Burden");
-            Console.WriteLine("4. Delete a Burden");
-            Console.WriteLine("5. Quit");
-            Console.WriteLine("\nWhat would you like to do?");
+            Console.WriteLine("- - - - - - - - - - - - - ");
+            Console.WriteLine("  M A I N   M E N U");
+            Console.WriteLine("- - - - - - - - - - - - - ");
+            Console.WriteLine("\t1.\tList Burdens");
+            Console.WriteLine("\t2.\tAdd a Burden");
+            Console.WriteLine("\t3.\tEdit a Burden");
+            Console.WriteLine("\t4.\tDelete a Burden");
+            Console.WriteLine("\t5.\tQuit");
+            Console.WriteLine("\nWhat would you like to do? Enter a number and press enter:");
         }
 
         private static int GetAndValidateUserNumber()
         {
+            // First checks if input is a number
+            // Then checks if the number is within the current max range
+            // The range updates each time a new menu is accessed. 
+
             userInput = Console.ReadLine();
 
             if (Int32.TryParse(userInput, out int result) && result >= 1 && result <= maxChoiceRange)
@@ -97,10 +105,10 @@ namespace GC_Capstone_TaskList
         private static void CheckUserWantsToContinue()
         {
             // Prompt user to continue/quit
-            Console.WriteLine("Are you sure want to quit? (y/n):");
+            Console.WriteLine("Would you like to return to the main menu? Enter y or n:");
             userInput = Console.ReadLine();
             Console.WriteLine(Environment.NewLine);
-            if (userInput.Equals("y"))
+            if (userInput.Equals("n"))
             {
                 userWantsToContinue = false;
             }
