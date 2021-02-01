@@ -31,13 +31,18 @@ namespace GC_Capstone_TaskList
 
             for (int i = 0; i < burdens.Count; i++)
             {
-                Console.WriteLine($"\tBurden Number:\t{i+1}");
-                Console.WriteLine($"\tDescription:\t{burdens[i].Description}");
-                Console.WriteLine($"\tName:\t{burdens[i].TeamMemberName}");
-                Console.WriteLine($"\tDue:\t{burdens[i].DueDate}");
-                Console.WriteLine($"\tStatus:\t{burdens[i].Status}");
-                Console.WriteLine(Environment.NewLine);
+                PrintBurdenByID(i);
             }
+        }
+
+        public void PrintBurdenByID(int index)
+        {
+            Console.WriteLine($"\tBurden Number:\t{index + 1}");
+            Console.WriteLine($"\tDescription:\t{burdens[index].Description}");
+            Console.WriteLine($"\tName:\t{burdens[index].TeamMemberName}");
+            Console.WriteLine($"\tDue:\t{burdens[index].DueDate}");
+            Console.WriteLine($"\tStatus:\t{burdens[index].Status}");
+            Console.WriteLine(Environment.NewLine);
         }
 
         public void EditBurden(int burdenIndex, string teamMemberName, string description, string dueDate)

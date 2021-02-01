@@ -21,7 +21,7 @@ namespace GC_Capstone_TaskList
             PrintWelcomeMessage();
             do
             {
-                AccessTaskManager();
+                AccessBurdenManager();
             } while (userWantsToContinue);
 
             ExitApp();
@@ -33,11 +33,13 @@ namespace GC_Capstone_TaskList
             Console.WriteLine("");
         }
 
-        private static void AccessTaskManager()
+        private static void AccessBurdenManager()
         {
             PrintMainMenu();
             
             userNumber = GetAndValidateUserNumber();
+            
+            Console.WriteLine(Environment.NewLine);
 
             switch (userNumber)
             {
@@ -45,19 +47,17 @@ namespace GC_Capstone_TaskList
                     OurBurdens.PrintBurdens();
                     break;
                 case 2:
-                   // AccessAddPage();
-                    Console.WriteLine("You chose ADD");
-                    //OurBurdens.AddBurden();
+                    AccessAddPage();
                     break;
                 case 3:
-                    Console.WriteLine("You chose EDIT");
-                    //OurBurdens.EditBurden();
+                    AccessEditPage();
                     break;
                 case 4:
                     Console.WriteLine("You chose DELETE");
                     //OurBurdens.DeleteBurden();
                     break;
                 case 5:
+                    Console.WriteLine("You chose MARK TASK COMPLETE");
                     break;
                 default:
                     Console.WriteLine($"Sorry, an error has occured. Unexpected value: {userNumber}");
@@ -68,18 +68,65 @@ namespace GC_Capstone_TaskList
             CheckUserWantsToContinue();
         }
 
+        private static void AccessAddPage()
+        {
+            Console.WriteLine("- - - - - - - - - - - - - ");
+            Console.WriteLine("  A D D  A  B U R D E N");
+            Console.WriteLine("- - - - - - - - - - - - - ");
+
+            Console.Write("\tEnter Burden Holder's Name: ");
+            string newMemberName = Console.ReadLine();
+
+            Console.Write("\tEnter a Description: ");
+            string newDescription = Console.ReadLine();
+
+            Console.Write("\tEnter a Due Date (MM/DD/YYYY): ");
+            string newDueDate = Console.ReadLine();
+
+            OurBurdens.AddBurden(new Burden(newMemberName, newDescription, newDueDate));
+        }
+
         private static void PrintMainMenu()
         {
             maxChoiceRange = 5;
             Console.WriteLine("- - - - - - - - - - - - - ");
             Console.WriteLine("  M A I N   M E N U");
             Console.WriteLine("- - - - - - - - - - - - - ");
-            Console.WriteLine("\t1.\tList Burdens");
+            Console.WriteLine("\t1.\tList all Burdens");
             Console.WriteLine("\t2.\tAdd a Burden");
             Console.WriteLine("\t3.\tEdit a Burden");
             Console.WriteLine("\t4.\tDelete a Burden");
-            Console.WriteLine("\t5.\tQuit");
+            Console.WriteLine("\t5.\tMark Burden Complete");
+            Console.WriteLine("\t6.\tQuit");
             Console.WriteLine("\nWhat would you like to do? Enter a number and press enter:");
+        }
+
+        private static void AccessEditPage()
+        {
+            maxChoiceRange = OurBurdens.Burdens.Count;
+
+            Console.WriteLine("- - - - - - - - - - - - - ");
+            Console.WriteLine("  E D I T  A  B U R D E N");
+            Console.WriteLine("- - - - - - - - - - - - - ");
+
+            Console.Write("\n\tTo edit a Burden, please enter its Burden Number:  ");
+            userNumber = GetAndValidateUserNumber();
+
+            Console.WriteLine($"\n\tSee current entry for Burden {userNumber} below:\n");
+            OurBurdens.PrintBurdenByID(userNumber - 1);
+
+            Console.WriteLine($"\n\tPlease re-enter the details now: \n");
+
+            Console.Write("\tEnter Burden Holder's Name: ");
+            string newMemberName = Console.ReadLine();
+
+            Console.Write("\tEnter a Description: ");
+            string newDescription = Console.ReadLine();
+
+            Console.Write("\tEnter a Due Date (MM/DD/YYYY): ");
+            string newDueDate = Console.ReadLine();
+
+            OurBurdens.EditBurden(userNumber - 1, newMemberName, newDescription, newDueDate);
         }
 
         private static int GetAndValidateUserNumber()
@@ -105,9 +152,14 @@ namespace GC_Capstone_TaskList
         private static void CheckUserWantsToContinue()
         {
             // Prompt user to continue/quit
-            Console.WriteLine("Would you like to return to the main menu? Enter y or n:");
-            userInput = Console.ReadLine();
             Console.WriteLine(Environment.NewLine);
+
+            Console.Write("Ok! Go back to the main menu? Enter y or n: ");
+           
+            userInput = Console.ReadLine();
+            
+            Console.WriteLine(Environment.NewLine);
+            
             if (userInput.Equals("n"))
             {
                 userWantsToContinue = false;
