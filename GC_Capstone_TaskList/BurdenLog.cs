@@ -31,19 +31,25 @@ namespace GC_Capstone_TaskList
         ///</summary>
         public void PrintAllBurdens(int listStyleType = 2)
         {
-
-            if (listStyleType == 1)
+            if (burdens.Count == 0)
             {
-                for (int i = 0; i < burdens.Count; i++)
-                {
-                    Console.WriteLine($"\t{i + 1}.\t{burdens[i].Description}");
-                }
+                Console.WriteLine("There are no Burdens! Lucky you!");
             }
-            if (listStyleType == 2)
+            else
             {
-                for (int i = 0; i < burdens.Count; i++)
+                if (listStyleType == 1)
                 {
-                    PrintBurdenByID(i);
+                    for (int i = 0; i < burdens.Count; i++)
+                    {
+                        Console.WriteLine($"\t{i + 1}.\t{burdens[i].Description}");
+                    }
+                }
+                if (listStyleType == 2)
+                {
+                    for (int i = 0; i < burdens.Count; i++)
+                    {
+                        PrintBurdenByID(i);
+                    }
                 }
             }
         }
@@ -55,7 +61,7 @@ namespace GC_Capstone_TaskList
             Console.WriteLine($"\tName:\t{burdens[index].TeamMemberName}");
             Console.WriteLine($"\tDue:\t{burdens[index].DueDate}");
             Console.WriteLine($"\tStatus:\t{burdens[index].Status}");
-            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("");
         }
 
         public void EditBurden(int burdenIndex, string teamMemberName, string description, string dueDate)
