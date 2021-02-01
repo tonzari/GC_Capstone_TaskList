@@ -6,6 +6,9 @@ namespace GC_Capstone_TaskList
     // I'm calling them Burdens. Hehe. 
     // Antonio Manzari
 
+    // Stretch goals: create a txt or xml file to read and write to save tasks, finish all extra exercises, convert string dates to DateTime
+    // update: didn't have enough time to do these ^ :(
+
     class Program
     {
         //initialize
@@ -30,42 +33,6 @@ namespace GC_Capstone_TaskList
             ExitApp();
         }
 
-        private static void AccessBurdenManager()
-        {
-            PrintMainMenu();
-            
-            userNumber = GetAndValidateUserNumber();
-            
-            Console.WriteLine(" ");
-
-            switch (userNumber)
-            {
-                case 1:
-                    AccessListPage();
-                    break;
-                case 2:
-                    AccessAddPage();
-                    break;
-                case 3:
-                    AccessEditPage();
-                    break;
-                case 4:
-                    AccessDeletePage();
-                    break;
-                case 5:
-                    AccessMarkCompletePage();
-                    break;
-                case 6:
-                    ExitApp();
-                    break;
-                default:
-                    Console.WriteLine($"Sorry, an error has occured. Unexpected value: {userNumber}");
-                    break;
-            }
-            
-            CheckUserWantsToContinue();
-        }
-
         #region METHODS
 
         private static void PrintWelcomeMessage()
@@ -88,6 +55,42 @@ namespace GC_Capstone_TaskList
             Console.WriteLine("\t6.\tQuit");
             Console.WriteLine($"\n\tYour team is carrying {OurBurdens.Burdens.Count} Burdens.");
             Console.WriteLine("\tWhat would you like to do? Enter a number and press enter:");
+        }
+
+        private static void AccessBurdenManager()
+        {
+            PrintMainMenu();
+
+            userNumber = GetAndValidateUserNumber();
+
+            Console.WriteLine("");
+
+            switch (userNumber)
+            {
+                case 1:
+                    AccessListPage();
+                    break;
+                case 2:
+                    AccessAddPage();
+                    break;
+                case 3:
+                    AccessEditPage();
+                    break;
+                case 4:
+                    AccessDeletePage();
+                    break;
+                case 5:
+                    AccessMarkCompletePage();
+                    break;
+                case 6:
+                    ExitApp();
+                    break;
+                default:
+                    Console.WriteLine($"Sorry, an error has occured. Unexpected value: {userNumber}. You may want to close the app and restart.");
+                    break;
+            }
+
+            CheckUserWantsToContinue();
         }
 
         private static void AccessListPage()
