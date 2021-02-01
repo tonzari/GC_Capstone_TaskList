@@ -24,14 +24,27 @@ namespace GC_Capstone_TaskList
             burdens.RemoveAt(burdenIndex);
         }
 
-        public void PrintBurdens()
+        ///<summary>
+        ///Prints all burderns. Optional: choose simple or detailed list style type by passing in an int:
+        ///1. Simple
+        ///2. Detailed (default)
+        ///</summary>
+        public void PrintAllBurdens(int listStyleType = 2)
         {
-            Console.WriteLine($"There are {burdens.Count} burdens to fulfill.");
-            Console.WriteLine(Environment.NewLine);
 
-            for (int i = 0; i < burdens.Count; i++)
+            if (listStyleType == 1)
             {
-                PrintBurdenByID(i);
+                for (int i = 0; i < burdens.Count; i++)
+                {
+                    Console.WriteLine($"\t{i + 1}.\t{burdens[i].Description}");
+                }
+            }
+            if (listStyleType == 2)
+            {
+                for (int i = 0; i < burdens.Count; i++)
+                {
+                    PrintBurdenByID(i);
+                }
             }
         }
 

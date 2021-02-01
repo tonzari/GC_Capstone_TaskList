@@ -27,12 +27,6 @@ namespace GC_Capstone_TaskList
             ExitApp();
         }
 
-        private static void PrintWelcomeMessage()
-        {
-            Console.WriteLine("Welcome to The Burden Manager!");
-            Console.WriteLine("");
-        }
-
         private static void AccessBurdenManager()
         {
             PrintMainMenu();
@@ -44,7 +38,7 @@ namespace GC_Capstone_TaskList
             switch (userNumber)
             {
                 case 1:
-                    OurBurdens.PrintBurdens();
+                    AccessListPage();
                     break;
                 case 2:
                     AccessAddPage();
@@ -64,8 +58,37 @@ namespace GC_Capstone_TaskList
                     break;
             }
             
-
             CheckUserWantsToContinue();
+        }
+
+        #region METHODS
+
+        private static void PrintWelcomeMessage()
+        {
+            Console.WriteLine("Welcome to The Burden Manager!");
+            Console.WriteLine("");
+        }
+
+        private static void PrintMainMenu()
+        {
+            maxChoiceRange = 5;
+            Console.WriteLine("- - - - - - - - - - - - - ");
+            Console.WriteLine("  M A I N   M E N U");
+            Console.WriteLine("- - - - - - - - - - - - - ");
+            Console.WriteLine("\t1.\tList all Burdens");
+            Console.WriteLine("\t2.\tAdd a Burden");
+            Console.WriteLine("\t3.\tEdit a Burden");
+            Console.WriteLine("\t4.\tDelete a Burden");
+            Console.WriteLine("\t5.\tMark Burden Complete");
+            Console.WriteLine("\t6.\tQuit");
+            Console.WriteLine("\nWhat would you like to do? Enter a number and press enter:");
+        }
+
+        private static void AccessListPage()
+        {
+            Console.WriteLine($"There are {OurBurdens.Burdens.Count} burdens to fulfill.");
+            Console.WriteLine(Environment.NewLine);
+            OurBurdens.PrintAllBurdens();
         }
 
         private static void AccessAddPage()
@@ -86,21 +109,6 @@ namespace GC_Capstone_TaskList
             OurBurdens.AddBurden(new Burden(newMemberName, newDescription, newDueDate));
         }
 
-        private static void PrintMainMenu()
-        {
-            maxChoiceRange = 5;
-            Console.WriteLine("- - - - - - - - - - - - - ");
-            Console.WriteLine("  M A I N   M E N U");
-            Console.WriteLine("- - - - - - - - - - - - - ");
-            Console.WriteLine("\t1.\tList all Burdens");
-            Console.WriteLine("\t2.\tAdd a Burden");
-            Console.WriteLine("\t3.\tEdit a Burden");
-            Console.WriteLine("\t4.\tDelete a Burden");
-            Console.WriteLine("\t5.\tMark Burden Complete");
-            Console.WriteLine("\t6.\tQuit");
-            Console.WriteLine("\nWhat would you like to do? Enter a number and press enter:");
-        }
-
         private static void AccessEditPage()
         {
             maxChoiceRange = OurBurdens.Burdens.Count;
@@ -108,6 +116,10 @@ namespace GC_Capstone_TaskList
             Console.WriteLine("- - - - - - - - - - - - - ");
             Console.WriteLine("  E D I T  A  B U R D E N");
             Console.WriteLine("- - - - - - - - - - - - - ");
+
+            Console.WriteLine("");
+            OurBurdens.PrintAllBurdens(1);
+            Console.WriteLine("");
 
             Console.Write("\n\tTo edit a Burden, please enter its Burden Number:  ");
             userNumber = GetAndValidateUserNumber();
@@ -171,6 +183,8 @@ namespace GC_Capstone_TaskList
             Console.WriteLine("Thanks! Your burdens will follow you even if you quit this app!!!");
             Console.WriteLine("Exiting application...");
         }
+
+        #endregion
 
         #region TESTS
         private static void TestCreationOfBurdenLog()
