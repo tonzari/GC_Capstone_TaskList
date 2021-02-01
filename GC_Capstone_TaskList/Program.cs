@@ -54,7 +54,7 @@ namespace GC_Capstone_TaskList
             Console.WriteLine("\t5.\tMark Burden Complete");
             Console.WriteLine("\t6.\tQuit");
             Console.WriteLine($"\n\tYour team is carrying {OurBurdens.Burdens.Count} Burdens.");
-            Console.WriteLine("\tWhat would you like to do? Enter a number and press enter:");
+            Console.Write("\tWhat would you like to do? Enter a number and press enter: ");
         }
 
         private static void AccessBurdenManager()
@@ -95,14 +95,19 @@ namespace GC_Capstone_TaskList
 
         private static void AccessListPage()
         {
-            Console.WriteLine(Environment.NewLine);
+            Console.WriteLine("- - - - - - - - - - - - - ");
+            Console.WriteLine("  A L L   B U R D E N S");
+            Console.WriteLine("- - - - - - - - - - - - - ");
+
+            Console.WriteLine("");
+
             OurBurdens.PrintAllBurdens();
         }
 
         private static void AccessAddPage()
         {
             Console.WriteLine("- - - - - - - - - - - - - ");
-            Console.WriteLine("  A D D  A  B U R D E N");
+            Console.WriteLine("  A D D   A   B U R D E N");
             Console.WriteLine("- - - - - - - - - - - - - ");
 
             Console.Write("\tEnter Burden Holder's Name: ");
@@ -121,9 +126,9 @@ namespace GC_Capstone_TaskList
         {
             availableOptions = OurBurdens.Burdens.Count;
 
-            Console.WriteLine("- - - - - - - - - - - - - ");
-            Console.WriteLine("  E D I T  A  B U R D E N");
-            Console.WriteLine("- - - - - - - - - - - - - ");
+            Console.WriteLine("- - - - - - - - - - - - - - ");
+            Console.WriteLine("  E D I T   A   B U R D E N");
+            Console.WriteLine("- - - - - - - - - - - - - - ");
 
             Console.WriteLine("");
             OurBurdens.PrintAllBurdens(1);
@@ -160,9 +165,9 @@ namespace GC_Capstone_TaskList
         {
             availableOptions = OurBurdens.Burdens.Count;
 
-            Console.WriteLine("- - - - - - - - - - - - - - - -");
-            Console.WriteLine("  D E L E T E  A  B U R D E N");
-            Console.WriteLine("- - - - - - - - - - - - - - - -");
+            Console.WriteLine("- - - - - - - - - - - - - - - - -");
+            Console.WriteLine("  D E L E T E   A   B U R D E N");
+            Console.WriteLine("- - - - - - - - - - - - - - - - -");
 
             Console.WriteLine("");
             OurBurdens.PrintAllBurdens(1);
@@ -200,7 +205,7 @@ namespace GC_Capstone_TaskList
             availableOptions = OurBurdens.Burdens.Count;
 
             Console.WriteLine("- - - - - - - - - - - - - - -");
-            Console.WriteLine("  M A R K  C O M P L E T E ");
+            Console.WriteLine("  M A R K   C O M P L E T E ");
             Console.WriteLine("- - - - - - - - - - - - - - -");
 
             Console.WriteLine("");
