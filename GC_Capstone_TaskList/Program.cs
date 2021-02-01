@@ -337,6 +337,8 @@ namespace GC_Capstone_TaskList
             OurBurdens.AddBurden(new Burden("Antonio Manzari", "Clean the bathroom", "12/14/2021"));
             OurBurdens.AddBurden(new Burden("Jim", "eat raccoon", "12/01/2021"));
             OurBurdens.AddBurden(new Burden("Neesha", "jump 5 times", "12/07/2021"));
+            OurBurdens.AddBurden(new Burden("Jake", "stretch and shape shift", "03/07/2201"));
+            OurBurdens.AddBurden(new Burden("Erica", "borrow some colored pencils", "02/13/2021"));
         }
         #endregion
     }

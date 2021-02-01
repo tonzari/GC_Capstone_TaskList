@@ -11,11 +11,15 @@ namespace GC_Capstone_TaskList
         private string dueDate;
         private bool isCompleted;
 
-        private DateTime dateTime; // Strech goal: convert all dates as strings to actual DateTime types. 
+        //TODO
+        // Strech goal: convert string to DateTime type each time one is entered or changed
+        // You can do this in the Set block?
+
+        // private DateTime dateTime;  
 
         private string status;
-        private string falseTerm = "incomplete";
-        private string trueTerm = "complete";
+        private string falseTerm = "incomplete";    // also acceptable "still haunting you"
+        private string trueTerm = "complete";       // also acceptable "finally over with" 
 
         public string TeamMemberName { get => teamMemberName; set => teamMemberName = value; }
         public string Description { get => description; set => description = value; }
@@ -46,8 +50,5 @@ namespace GC_Capstone_TaskList
             isCompleted = false;
             status = falseTerm;
         }
-
-        //TODO
-        // convert string to DateTime type each time one is entered or changed
     }
 }
